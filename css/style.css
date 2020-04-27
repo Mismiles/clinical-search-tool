@@ -58,11 +58,14 @@ h1 {
   font-size: 1.25em;
   letter-spacing: -0.015em;
 } */
+<<<<<<< HEAD
 
 .navbar-toggler{
     background-color:transparent;
 }
 
+=======
+>>>>>>> b121c43f357f63b609c139099760579b1cd0144e
 .container {
   position: relative;
   margin: calc(75px + 2vh + 2vw) auto 0 auto;
