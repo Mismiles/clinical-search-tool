@@ -5,12 +5,12 @@ from os import path
 if path.exists("env.py"):
     import env
 
+app = Flask(__name__)
+
 app.config[MONGODB_LIST] = os.getenv("MONGODB_LIST")
 app.config[DBS_NAME] = "PharmacyLinks"
 
 mongo = PyMongo(app)
-
-app = Flask(__name__)
 
 @app.route("/")
 def index():
