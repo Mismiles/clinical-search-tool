@@ -14,12 +14,14 @@
 </nav>
   <ul class="collapsible">
     <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+    
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>{% for resource in resource %}{{resource.resource_name}}</div>
       <div class="collapsible-body">
-        <p>Lorem ipsum dolor sit amet.</p>
-        <p>Lorem ipsum dolor sit amet.</p>
-        <p>Lorem ipsum dolor sit amet.</p>
+        <p>{{resource.resource_link}}</p>
+        <p>{{resource.resource_description}}</p>
+        <p>{{resource.resource_updated}}</p>
       </div>
+      {% endfor %}
     </li>
     <li>
       <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>

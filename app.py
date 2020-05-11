@@ -1,14 +1,16 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
 from os import path
 if path.exists("env.py"):
     import env
 
+
 app = Flask(__name__)
 
-app.config[MONGODB_LIST] = os.getenv("MONGODB_LIST")
-app.config[DBS_NAME] = "PharmacyLinks"
+app.config["MONGO_DBNAME"] = "PharmacyLinks"
+app.config["MONGO_URI"] = os.getenv("MONGODB_LIST")
 
 mongo = PyMongo(app)
 
@@ -26,7 +28,7 @@ def about():
 
 @app.route("/resourcelist")
 def resourcelist():
-    return render_template("resourcelist.html")
+    return render_template("resourcelist.html", resource=mongo.db.resource.find())
 
 
 if __name__ == "__main__":
