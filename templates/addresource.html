@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<nav>
+<div class="nav-wrapper purple purple darken-2">
+    <form class="search-bar">
+        <div class="input-field">
+          <input id="search" type="search" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+    </form>
+        </div>
+</nav>
+<br>
+<h1>Add a resource</h1>
+
+<div class="row">
+<form action="" method="POST" class="col s12">
+    <div class="row">
+    <div class="input-field col s12">
+        <i class="material-icons prefix">library_books</i>
+        <input id="resource_name" name="resource_name" type="text" class="validate">
+        <label for="icon_prefix">Resource Name</label>
+    </div>
+    <div class="input-field col s12">
+        <i class="material-icons prefix">link</i>
+        <input id="resource_link" name="resource_link" type="url" class="validate">
+        <label for="icon_prefix">Website address</label>
+    </div>
+    <div class="input-field col s12">
+        <i class="material-icons prefix">description</i>
+        <input id="resource_description" name="resource_description" type="text" class="validate">
+        <label for="icon_prefix">Description of resource</label>
+    </div>
+    <div class="input-field col s12">
+        <i class="material-icons prefix">date_range</i>
+        <input id="resource_updated" name="resource_updated" type="text" class="datepicker">
+        <label for="icon_prefix">Select the date you updated the resource</label>
+    </div>
+    </div>
+</form>
+</div>
+{% endblock %}

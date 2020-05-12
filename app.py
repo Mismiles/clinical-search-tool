@@ -30,6 +30,9 @@ def about():
 def resourcelist():
     return render_template("resourcelist.html", resource=mongo.db.resource.find())
 
+@app.route("/addresource")
+def addresource():
+    return render_template("addresource.html")
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

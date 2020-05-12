@@ -12,33 +12,20 @@
     </form>
         </div>
 </nav>
-  <ul class="collapsible">
-    <li>
-    
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>{% for resource in resource %}{{resource.resource_name}}</div>
-      <div class="collapsible-body">
-        <p>{{resource.resource_link}}</p>
-        <p>{{resource.resource_description}}</p>
-        <p>{{resource.resource_updated}}</p>
-      </div>
-      {% endfor %}
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-      <div class="collapsible-body">
-        <p>Lorem ipsum dolor sit amet.</p>
-        <p>Lorem ipsum dolor sit amet.</p>
-        <p>Lorem ipsum dolor sit amet.</p>
-      </div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-      <div class="collapsible-body">
-        <p>Lorem ipsum dolor sit amet.</p>
-        <p>Lorem ipsum dolor sit amet.</p>
-        <p>Lorem ipsum dolor sit amet.</p>
-      </div>
-    </li>
-  </ul>
+
+<ul class="collapsible">
+{% for resource in resource %}
+<li>
+
+    <div class="collapsible-header"><i class="material-icons">arrow_drop_down</i><strong>{{resource.resource_name}}</strong>
+    </div>
+    <div class="collapsible-body">
+    <p>{{resource.resource_link}}</p>
+    <p>{{resource.resource_description}}</p>
+    <p>{{resource.resource_updated}}</p>
+    </div>
+</li>
+{% endfor %}
+</ul>
 
 {% endblock %}
