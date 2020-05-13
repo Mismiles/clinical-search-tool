@@ -32,7 +32,13 @@ def resourcelist():
 
 @app.route("/addresource")
 def addresource():
-    return render_template("addresource.html")
+    return render_template("addresource.html",categories=mongo.db.categories.find())
+
+@app.route("/insertresource", methods=['POST'])
+def insertresource():
+    resource = mongo.db.resource
+    resource.insert_one(request.form.to_dict())
+    return redirect(url_for("resourcelist"))
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
