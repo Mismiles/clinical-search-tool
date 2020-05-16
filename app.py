@@ -40,6 +40,13 @@ def insertresource():
     resource.insert_one(request.form.to_dict())
     return redirect(url_for("resourcelist"))
 
+@app.route("/editresource/<resource_id>")
+def editresource(resource_id):
+    the_resource = mongo.db.resource.find_one({"_id": ObjectId(resource_id)})
+    all_categories = mongo.db.categories.find()
+    return render_template("editresource.html", resource=the_resource, categories=all_categories)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

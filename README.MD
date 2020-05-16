@@ -1,4 +1,4 @@
-##Vancoymcyin initiation tool
+##Pharmacy search tool
 The project was started to imporve the searching of resources. At my hospital, we have a search tool that finds reources clinicians need inorder to undertake their work. Clinicians often have to know the route and links to click to find a specific resource, or be able to search for that tool exactly how it is spelt on the system. This wastes a lot of time searching for resources, removing important time needed spent looking after patients. 
 
 This project aims to build a search database that will allow the user to search for a resource using a key word. If they cannot find the resource under the keyword, they can access the master list and add or edit keywords to the search term. Overtime, this should mean that you can use many search terms instead of one.
@@ -22,15 +22,17 @@ https://drive.google.com/file/d/1fpjlTmFjG2F_fiG67_HgJ0i6IJcptLUw/view?usp=shari
 ##Features
 The front page is simple. It contains a navbar and a search box.
 
-The nav bar allows for naviagtion to the homepage, resource list and the login section.
+The nav bar allows for naviagtion to the homepage,about, resource list and the add a resource page.
 
 ##Existing Features
 The first feature (the search bar) allows the user to serch the database using key words.
 
-The results page shows the reults and organises it by alphabetical order.
+The results page shows the reults.
+
+The "add a resource" page allows the user to fill out a form which will add to the database.
 
 ##Features Left to Implement
-<!-- Another feature idea for the future could be to obtain all the input values and email them to an email address. This could then be used to audit prescribing. -->
+A login page or function could be added to ensure only those who are registered can alter the data.
 
 
 ##Technologies Used

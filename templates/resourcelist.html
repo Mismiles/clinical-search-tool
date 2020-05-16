@@ -1,28 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-<nav>
-<div class="nav-wrapper purple darken-2">
-    <form class="search-bar">
-        <div class="input-field">
-          <input id="search" type="search" required>
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-        </div>
-    </form>
-        </div>
-</nav>
 
 <ul class="collapsible">
 {% for resource in resource %}
 <li>
-
-    <div class="collapsible-header"><i class="material-icons">arrow_drop_down</i><strong>{{resource.resource_name}}</strong>
+    <div class="collapsible-header">
+    <div class="col s3">
+    <i class="material-icons">arrow_drop_down</i>
+    </div>
+    
+    <strong>{{resource.resource_name}}</strong>
     </div>
     <div class="collapsible-body">
     <p>{{resource.resource_link}}</p>
     <p>{{resource.resource_description}}</p>
     <p>{{resource.resource_updated}}</p>
+    <a href="{{url_for('editresource', resource_id=resource._id)}}" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Edit resource</a>
     </div>
 </li>
 {% endfor %}
