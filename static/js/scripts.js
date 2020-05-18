@@ -5,22 +5,19 @@ $(document).ready(function(){
     $('.datepicker').datepicker();
 });
 
-// $(document).ready(function(){
-// $('.sidenav').sidenav();
-// });
-
 $(document).ready(function(){
-$("#search").focus(function() {
+$("#searchbox").focus(function() {
     $(".search-box").addClass("border-searching");
     $(".search-icon").addClass("si-rotate");
 });
+});
 
-$("#search").blur(function() {
+$("#searchbox").blur(function() {
     $(".search-box").removeClass("border-searching");
     $(".search-icon").removeClass("si-rotate");
 });
 
-$("#search").keyup(function() {
+$("#searchbox").keyup(function() {
     if($(this).val().length > 0) {
         $(".go-icon").addClass("go-in");
     }
