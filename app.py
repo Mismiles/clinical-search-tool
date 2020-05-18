@@ -44,7 +44,7 @@ def insertresource():
 def editresource(resource_id):
     the_resource = mongo.db.resource.find_one({"_id": ObjectId(resource_id)})
     all_categories = mongo.db.categories.find()
-    return render_template("editresource.html", resource=the_resource, categories=all_categories)
+    return render_template('editresource.html', resource=the_resource, categories=all_categories)
 
 
 if __name__ == "__main__":
