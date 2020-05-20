@@ -4,33 +4,38 @@
 <br>
 <h1>Edit the resource</h1>
 <div class="row">
+<form action="{{ url_for('updateresource, resource_id=resource._id') }}" method="POST" class="col s12">
+<div class="row">
+<div class="row">
 <div class="input-field col s12">
 <i class="material-icons prefix">Poll</i>
-<select id="resource" name="resource_name">
+<select id="resource" name="resource_category">
     <option value="" disabled selected>Choose your option</option>
     {% for cat in categories %}
-    <option value="{{cat.catgery_name}}">{{cat.catgery_name}}</option>
+    {% if cat.resource_category == resource.resource_category%}
+    <option value="{{resource.resource_category}}" selected>{{cat.resource_category}}</option>
+    {% else %}
+    <option value="{{cat.resource_category}}">{{cat.resource_category}}</option>
+        {% endif %}
     {% endfor %}
 </select>
 <label>Select resource category</label>
 </div>
 </div>
-<div class="row">
-<form action="{{ url_for('insertresource') }}" method="POST" class="col s12">
     <div class="row">
     <div class="input-field col s12">
         <i class="material-icons prefix">library_books</i>
-        <input id="resource_name" name="resource_name" type="text" class="validate">
+        <input id="resource_name" name="resource_name" type="text" class="validate" value="{{resource.resource_name}}">
         <label for="icon_prefix">Resource Name</label>
     </div>
     <div class="input-field col s12">
         <i class="material-icons prefix">link</i>
-        <input id="resource_link" name="resource_link" type="text" class="validate">
+        <input id="resource_link" name="resource_link" type="text" class="validate" value="{{resource.resource_link}}">
         <label for="icon_prefix">Website address</label>
     </div>
     <div class="input-field col s12">
         <i class="material-icons prefix">description</i>
-        <input id="resource_description" name="resource_description" type="text" class="validate">
+        <input id="resource_description" name="resource_description" type="text" class="validate" value="{{resource.resource_description}}">
         <label for="icon_prefix">Description of resource</label>
     </div>
     <div class="input-field col s12">

@@ -3,10 +3,8 @@ $(document).ready(function(){
     $('select').formSelect();
     $('.sidenav').sidenav();
     $('.datepicker').datepicker();
-});
-
-$(document).ready(function(){
-$("#searchbox").focus(function() {
+    $('.resource_updated')
+    $("#searchbox").focus(function() {
     $(".search-box").addClass("border-searching");
     $(".search-icon").addClass("si-rotate");
 });

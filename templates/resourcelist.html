@@ -9,13 +9,13 @@
     <div class="col s3">
     <i class="material-icons">arrow_drop_down</i>
     </div>
-    <strong>{{resource.resource_name}}</strong>
+    <strong>{{resource.resource_category}}</strong>
     </div>
     <div class="collapsible-body">
     <div>
-    <p>{{resource.resource_link}}</p>
+    <a href="{{resource.resource_link}}">{{resource.resource_link}}</a>
     <p>{{resource.resource_description}}</p>
-    <p>{{resource.resource_updated}}</p>
+    <p>Resource updated on {{resource.resource_updated}}</p>
     <a href="{{url_for('editresource', resource_id=resource._id)}}" class="waves-effect waves-light btn btn small"><i class="material-icons left">cloud</i>Edit resource</a>
     </div>
 </li>
