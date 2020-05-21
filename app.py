@@ -46,6 +46,19 @@ def editresource(resource_id):
     all_categories = mongo.db.categories.find()
     return render_template('editresource.html', resource=the_resource, categories=all_categories)
 
+@app.route("/updateresource/<resource_id>", methods=["POST"])
+def updateresource(resource_id):
+    resources = mongo.db.resource
+    resources.update( {'_id': ObjectId(resource_id)},
+    {
+        'resource_category':request.form.get('resource_category'),
+        'resource_name':request.form.get('resource_name'),
+        'resource_link':request.form.get('resource_link'),
+        'resource_description': request.form.get('resource_description'),
+        'resource_updated': request.form.get('resource_updated')
+    })
+    return redirect(url_for('resourcelist'))
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
