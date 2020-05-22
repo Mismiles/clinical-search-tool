@@ -1,6 +1,6 @@
-html, body,  {
+html, body, p {
   font-family: 'Montserrat Alternates', sans-serif;
-  color: black;
+  color: #FFFFFF;
   width: 100%;
   max-width: 100%;
   height: 100%;
@@ -24,7 +24,7 @@ html, body,  {
 }
 
 a, a:visited, a:hover {
-  color: inherit;
+  color: #FFFFFF !important;
   text-decoration: none;
 }
 
@@ -76,8 +76,12 @@ h5 {
  margin: 0;
 }
 
+.collapsible-header {
+ font-weight: bold;
+}
+
 .navbar-toggler{
-    background-color:transparent;
+ background-color:transparent;
 }
 
 .container {
@@ -87,6 +91,7 @@ h5 {
   width: 100%;
   max-width: 840px;
 }
+
 .search-box {
   position: relative;
   width: 100%;
