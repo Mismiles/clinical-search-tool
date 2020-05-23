@@ -1,4 +1,4 @@
-html, p {
+html, p, body {
   font-family: 'Montserrat Alternates', sans-serif;
   color: #FFFFFF;
   width: 100%;
@@ -28,7 +28,7 @@ a, a:visited, a:hover {
   text-decoration: none;
 }
 
-body {
+main {
   position: absolute;
   top: 0;
   left: 0;
