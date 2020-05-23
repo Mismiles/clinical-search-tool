@@ -28,7 +28,7 @@ a, a:visited, a:hover {
   text-decoration: none;
 }
 
-main {
+body {
   position: absolute;
   top: 0;
   left: 0;
@@ -74,6 +74,10 @@ h5 {
  height: 100%;
  padding: 0;
  margin: 0;
+}
+
+.datepicker-day-button{
+ color: black !important;
 }
 
 .collapsible-header {
