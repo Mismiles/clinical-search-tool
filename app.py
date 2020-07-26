@@ -6,7 +6,6 @@ from os import path
 if path.exists("env.py"):
     import env
 
-
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = "PharmacyLinks"
@@ -33,6 +32,10 @@ def resourcelist():
 @app.route("/addresource")
 def addresource():
     return render_template("addresource.html",categories=mongo.db.categories.find())
+
+@app.route("/addcategory")
+def addcategory():
+    return render_template("addcategory.html",categories=mongo.db.categories.find())
 
 @app.route("/insertresource", methods=['POST'])
 def insertresource():
