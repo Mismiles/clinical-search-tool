@@ -13,7 +13,6 @@
     {% for cat in categories %}
     <option value="{{cat.resource_category}}">{{cat.resource_category}}</option>
     {% endfor %}
-    <option value="{{ url_for('addcategory')}}">Add a category</option>
 </select>
 <label>Select resource category</label>
 </div>
@@ -24,7 +23,7 @@
     </div>
     <div class="input-field col s12">
         <i class="material-icons prefix">link</i>
-        <input id="resource_link" name="resource_link" type="text" class="validate">
+        <input id="resource_link" name="resource_link" type="url" class="validate">
         <label for="icon_prefix">Website address</label>
     </div>
     <div class="input-field col s12">
