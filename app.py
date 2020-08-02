@@ -33,9 +33,15 @@ def resourcelist():
 def addresource():
     return render_template("addresource.html",categories=mongo.db.categories.find())
 
-@app.route("/addcategory")
-def addcategory():
-    return render_template("addcategory.html",categories=mongo.db.categories.find())
+@app.route("/categorylist")
+def categorylist():
+    return render_template("categorylist.html",
+    categories=mongo.db.categories.find())
+
+@app.route("/editcategory/<category_id>")
+def editcategory(category_id):
+    return render_template('editcategory.html'),
+    category=mongo.db.categories.find_one({'_id':ObjectId(category_id)})
 
 @app.route("/insertresource", methods=['POST'])
 def insertresource():

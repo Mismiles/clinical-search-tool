@@ -2,17 +2,17 @@
 
 <div class="row">
 
-<h1>Add a category</h1>
+<h1>Category list</h1>
 
 <ul class="collapsible purple darken-2">
 {% for cat in categories %}
 <li>
     <div class="collapsible-header purple darken-2">
-    <a href="" class="waves-effect waves-light btn btn small"><i class="material-icons left">cloud</i>Edit resource</a>
-    <a href="" class="waves-effect waves-light btn btn small"><i class="material-icons left">cloud</i>Delete resource</a>
-       <div class="task_header col s9">
+    <div class="task_header col s9">
         <strong>{{cat.resource_category}}</strong>
     </div>
+    <a href="" class="waves-effect waves-light btn btn small"><i class="material-icons left">cloud</i>Edit resource</a>
+    <a href="" class="waves-effect waves-light btn btn small"><i class="material-icons left">cloud</i>Delete resource</a>
     </div>
 </li>
 {% endfor %}
