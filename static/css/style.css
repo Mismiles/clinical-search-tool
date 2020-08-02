@@ -82,6 +82,7 @@ h5 {
 
 .collapsible-header {
  font-weight: bold;
+ background-color:transparent;
 }
 
 .navbar-toggler{

@@ -67,7 +67,6 @@ def delete_resource(resource_id):
     mongo.db.resource.remove({'_id': ObjectId(resource_id)})
     return redirect(url_for('resourcelist'))
 
-
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
