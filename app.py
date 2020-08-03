@@ -43,6 +43,11 @@ def edit_category(category_id):
     return render_template('editcategory.html',
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)}))
 
+@app.route("/delete_category/<category_id>")
+def delete_category(category_id):
+    mongo.db.categories.remove({"_id": ObjectId(category_id)})
+    return redirect(url_for('categorylist'))
+
 @app.route("/update_category/<category_id>", methods=['POST'])
 def update_category(category_id):
     mongo.db.categories.update(
