@@ -48,12 +48,22 @@ def delete_category(category_id):
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
     return redirect(url_for('categorylist'))
 
+@app.route("/add_category", methods=['POST'])
+def add_category():
+    category_doc = {'resource_category': request.form.get('resource_category')}
+    mongo.db.categories.insert_one(category_doc)
+    return redirect(url_for('categorylist'))
+
 @app.route("/update_category/<category_id>", methods=['POST'])
 def update_category(category_id):
     mongo.db.categories.update(
         {'_id': ObjectId(category_id)},
         {'resource_category': request.form.get('resource_category')})
     return redirect(url_for('categorylist'))
+
+@app.route("/new_category")
+def new_category():
+    return render_template('addcategory.html')
 
 @app.route("/insertresource", methods=['POST'])
 def insertresource():
