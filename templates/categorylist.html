@@ -5,13 +5,13 @@
 <h1>Category list</h1>
 
 <ul class="collapsible purple darken-2">
-{% for cat in categories %}
+{% for category in categories %}
 <li>
     <div class="collapsible-header purple darken-2">
     <div class="task_header col s9">
-        <strong>{{cat.resource_category}}</strong>
+        <strong>{{category.resource_category}}</strong>
     </div>
-    <a href="" class="waves-effect waves-light btn btn small"><i class="material-icons left">cloud</i>Edit resource</a>
+    <a href="{{url_for('edit_category', category_id=category._id)}}" class="waves-effect waves-light btn btn small"><i class="material-icons left">cloud</i>Edit category</a>
     <a href="" class="waves-effect waves-light btn btn small"><i class="material-icons left">cloud</i>Delete resource</a>
     </div>
 </li>
