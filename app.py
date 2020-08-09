@@ -86,6 +86,7 @@ def updateresource(resource_id):
         'resource_name':request.form.get('resource_name'),
         'resource_link':request.form.get('resource_link'),
         'resource_description': request.form.get('resource_description'),
+        'searchterms': request.form.get('searchterms'),
         'resource_updated': request.form.get('resource_updated')
     })
     return redirect(url_for('resourcelist'))
@@ -94,6 +95,13 @@ def updateresource(resource_id):
 def delete_resource(resource_id):
     mongo.db.resource.remove({'_id': ObjectId(resource_id)})
     return redirect(url_for('resourcelist'))
+
+@app.route('/search', methods = ['GET', 'POST'])
+def search():
+  search = request.form.get("search")
+  resources = list(mongo.db.resource.find({"$text": {"$search": search}}))
+  return render_template('resourcelist.html', resources=resources)
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
