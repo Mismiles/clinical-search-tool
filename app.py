@@ -27,7 +27,7 @@ def about():
 
 @app.route("/resourcelist")
 def resourcelist():
-    return render_template("resourcelist.html", resource=mongo.db.resource.find())
+    return render_template("resourcelist.html", resources=list(mongo.db.resource.find()))
 
 @app.route("/addresource")
 def addresource():
@@ -102,6 +102,11 @@ def search():
   resources = list(mongo.db.resource.find({"$text": {"$search": search}}))
   return render_template('resourcelist.html', resources=resources)
 
+@app.route('/query', methods = ['GET', 'POST'])
+def query():
+  searchbox = request.form.get("searchbox")
+  resources = list(mongo.db.resource.find({"$text": {"$search": searchbox}}))
+  return render_template('resourcelist.html', resources=resources)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

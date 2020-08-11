@@ -2,8 +2,11 @@
 
 {% block content %}
 
+<h3>Resource list</h3>
+
+    {% if resources|length > 0 %}
 <ul class="collapsible">
-{% for resource in resource %}
+        {% for resource in resources %}
 <li>
     <div class="collapsible-header purple darken-2">
     <div class="col s3">
@@ -22,8 +25,10 @@
     <a href="{{url_for('delete_resource', resource_id=resource._id)}}" class="waves-effect waves-light btn btn small"><i class="material-icons left">cloud</i>Delete resource</a>
     </div>
 </li>
-{% endfor %}
+        {% endfor %}
 </ul>
-
+    {% else %}
+<h3 class="red">No results</h3>
+    {% endif %}
 
 {% endblock %}
