@@ -77,6 +77,10 @@ h5 {
  margin: 0;
 }
 
+.brand-logo{
+    margin-left: 10px;
+}
+
 .datepicker-day-button{
  color: black !important;
 }
