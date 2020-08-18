@@ -28,7 +28,7 @@
         {% endfor %}
 </ul>
     {% else %}
-<h3 class="red">No results</h3>
+<h3 class="red"><a href="{{url_for('resourcelist')}}"> <b>No results, click to see all resources</b></h3>
     {% endif %}
 
 {% endblock %}

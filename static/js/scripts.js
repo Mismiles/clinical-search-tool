@@ -27,3 +27,7 @@ $("#searchbox").keyup(function() {
 $(".go-icon").click(function(){
     $(".search-form").submit();
 });
+
+$( "#addresource" ).click(function() {
+  alert( "Handler for .click() called." );
+});
