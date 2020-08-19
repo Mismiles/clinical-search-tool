@@ -25,6 +25,14 @@ def results():
 def about():
     return render_template("about.html")
 
+@app.route("/register")
+def register():
+    return render_template("register.html")
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
 @app.route("/resourcelist")
 def resourcelist():
     return render_template("resourcelist.html", resources=list(mongo.db.resource.find()))
