@@ -1,19 +1,19 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, session
+from flask import Flask, render_template, redirect, request, url_for, session, jsonify
 from flask_pymongo import PyMongo
-from flask_bcrypt import Bcrypt
-import bcrypt
+from passlib.hash import pbkdf2_sha256
 from bson.objectid import ObjectId
+import uuid
 from os import path
 if path.exists("env.py"):
     import env
 
 app = Flask(__name__)
 
+app.secret_key = b'\xcc^\x91\xea\x17-\xd0W\x03\xa7\xf8J0\xac8\xc5'
 app.config["MONGO_DBNAME"] = "PharmacyLinks"
 app.config["MONGO_URI"] = os.getenv("MONGODB_LIST")
 
-flask_bcrypt = Bcrypt(app)
 mongo = PyMongo(app)
 
 @app.route("/")
@@ -23,33 +23,25 @@ def index():
 
     return render_template("index.html")
 
-@app.route('/login', methods=['POST'])
-def login():
-    users = mongo.db.users
-    login_user = users.find_one({'name' : request.form['username']})
-
-    if login_user:
-        if bcrypt.hashpw(request.form['pass'].encode('utf-8'), login_user['password'].encode('utf-8')) == login_user['password'].encode('utf-8'):
-            session['username'] = request.form['username']
-            return redirect(url_for('login.html'))
-
-    return 'Invalid username/password combination'
-
 @app.route('/register', methods=['POST', 'GET'])
 def register():
-    if request.method == 'POST':
-        users = mongo.db.users
-        existing_user = users.find_one({'name' : request.form['username']})
+    print(request.form)
 
-        if existing_user is None:
-            hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
-            users.insert({'name' : request.form['username'], 'password' : hashpass})
-            session['username'] = request.form['username']
-            return redirect(url_for('index'))
-        
-        return 'That username already exists!'
+    user = {
+      "_id": uuid.uuid4().hex,
+      "name": request.form.get('name'),
+      "email": request.form.get('email'),
+      "password": request.form.get('password')
+    }
 
-    return render_template('register.html')
+    # Encrypt the password
+    user['password'] = pbkdf2_sha256.encrypt(user['password'])
+
+    del user['password']
+    session['logged_in'] = True
+    session['user'] = user
+    return jsonify(user), 200
+    return redirect(url_for('register.html'))
 
 @app.route("/results")
 def results():
