@@ -1,16 +1,14 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, session, jsonify
+from flask import Flask, flash, render_template, redirect, request, url_for, session 
 from flask_pymongo import PyMongo
-from passlib.hash import pbkdf2_sha256
 from bson.objectid import ObjectId
-import uuid
+from werkzeug.security import generate_password_hash, check_password_hash
 from os import path
 if path.exists("env.py"):
     import env
 
 app = Flask(__name__)
 
-app.secret_key = b'\xcc^\x91\xea\x17-\xd0W\x03\xa7\xf8J0\xac8\xc5'
 app.config["MONGO_DBNAME"] = "PharmacyLinks"
 app.config["MONGO_URI"] = os.getenv("MONGODB_LIST")
 
@@ -19,29 +17,28 @@ mongo = PyMongo(app)
 @app.route("/")
 def index():
     if 'username' in session:
-        return 'You are logged in as ' + session['username']
+        return render_template("index.html")
 
-    return render_template("index.html")
-
-@app.route('/register', methods=['POST', 'GET'])
+@app.route('/register', methods=['GET', 'POST'])
 def register():
-    print(request.form)
+    if request.method == "POST":
+        #Check if username is already in database
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
 
-    user = {
-      "_id": uuid.uuid4().hex,
-      "name": request.form.get('name'),
-      "email": request.form.get('email'),
-      "password": request.form.get('password')
-    }
-
-    # Encrypt the password
-    user['password'] = pbkdf2_sha256.encrypt(user['password'])
-
-    del user['password']
-    session['logged_in'] = True
-    session['user'] = user
-    return jsonify(user), 200
-    return redirect(url_for('register.html'))
+        if existing_user:
+            flash("username already exists")
+            return redirect(url_for("register"))
+        
+        register = {
+            "username": request.form.get("username").lower(), 
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        mongo.db.users.insert_one(register)
+        #Put new user into 'session' cookie
+        session["user"] = request.form.get("username").lower()
+        flash("Registration Successful")
+    return render_template('register.html')
 
 @app.route("/results")
 def results():
@@ -135,7 +132,7 @@ def query():
   return render_template('resourcelist.html', resources=resources)
 
 if __name__ == "__main__":
+    app.secret_key = 'secret1key'
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
-    app.secret_key = 'mysecret'

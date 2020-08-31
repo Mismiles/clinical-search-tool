@@ -3,49 +3,37 @@
 {% block content %}
 
 <h1>Add a resource</h1>
-<div class="row">
-<form action="{{ url_for('insertresource') }}" method="POST" class="col s12">
-<div class="row">
-<div class="input-field col s12">
-<i class="material-icons prefix">Poll</i>
-<select id="resource" name="resource_category">
-    <option value="" disabled selected>Choose your option</option>
-    {% for cat in categories %}
-    <option value="{{cat.resource_category}}">{{cat.resource_category}}</option>
-    {% endfor %}
-</select>
-<label>Select resource category</label>
-</div>
-    <div class="input-field col s12">
-        <i class="material-icons prefix">library_books</i>
-        <input id="resource_name" name="resource_name" type="text" class="validate">
-        <label for="icon_prefix">Resource Name</label>
-    </div>
-    <div class="input-field col s12">
-        <i class="material-icons prefix">link</i>
-        <input id="resource_link" name="resource_link" type="url" value="http://www." class="validate">
-        <label for="icon_prefix">Website address</label>
-    </div>
-    <div class="input-field col s12">
-        <i class="material-icons prefix">description</i>
-        <input id="resource_description" name="resource_description" type="text" class="validate">
-        <label for="icon_prefix">Description of resource</label>
-    </div>
-        <div class="input-field col s12">
-        <i class="material-icons prefix">search</i>
-        <input id="searchterms" name="searchterms" type="text" class="validate">
-        <label for="icon_prefix">Search Terms (separate by a comma)</label>
-    </div>
-    <div class="input-field col s12">
-        <i class="material-icons prefix">date_range</i>
-        <input id="resource_updated" name="resource_updated" type="text" class="datepicker">
-        <label for="icon_prefix">Select the date you updated the resource</label>
-    </div>
-    <div class="row col s12">
-        <button class="btn waves-effect #e040fb purple accent-2" type="submit" name="action">Add resource
-    <i class="material-icons right">send</i>
-    </button>
-    </div>
-</form>
-</div>
+    <div class="row">
+    <form action="{{ url_for('insertresource') }}" class="col s12" method="post">
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">Poll</i> <select id="resource" name="resource_category">
+                    <option disabled selected value="">
+                        Choose your option
+                    </option>
+                    <option value="{{cat.resource_category}}">
+                        {{cat.resource_category}}
+                    </option>
+                </select> <label>Select resource category</label>
+            </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">library_books</i> <input class="validate" id="resource_name" name="resource_name" type="text"> <label for="icon_prefix">Resource Name</label>
+            </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">link</i> <input class="validate" id="resource_link" name="resource_link" type="url" value="http://www."> <label for="icon_prefix">Website address</label>
+            </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">description</i> <input class="validate" id="resource_description" name="resource_description" type="text"> <label for="icon_prefix">Description of resource</label>
+            </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">search</i> <input class="validate" id="searchterms" name="searchterms" type="text"> <label for="icon_prefix">Search Terms (separate by a comma)</label>
+            </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">date_range</i> <input class="datepicker" id="resource_updated" name="resource_updated" type="text"> <label for="icon_prefix">Select the date you updated the resource</label>
+            </div>
+            <div class="row col s12">
+                <button class="btn waves-effect #e040fb purple accent-2" name="action" type="submit">Add resource <i class="material-icons right">send</i></button>
+            </div>
+        </div>
+    </form>
 {% endblock %}
