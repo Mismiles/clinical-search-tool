@@ -11,7 +11,7 @@
 <select id="resource" name="resource_category">
     <option value="" disabled selected>Choose your option</option>
     {% for cat in categories %}
-    {% if cat.resource_category == resource.resource_category%}
+    {% if cat.resource_category == resource.resource_category %}
     <option value="{{resource.resource_category}}" selected>{{cat.resource_category}}</option>
     {% else %}
     <option value="{{cat.resource_category}}">{{cat.resource_category}}</option>

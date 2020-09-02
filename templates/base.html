@@ -14,17 +14,20 @@
 <body>  
     <nav>
     <div class="nav-wrapper purple darken-2">
-    <a href="/" class="brand-logo">Search tool</a>
+    <a href="/" class="brand-logo">Pharmacy Search</a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="/">Home</a></li>
-        <li><a href="{{ url_for('about') }}">About</a></li>
-        <li><a href="{{ url_for('register') }}">Register</a></li>
-        <li><a href="{{ url_for('login') }}">Login</a></li>
-        <li><a href="#">Logout</a></li>
-        <li><a href="{{ url_for('resourcelist') }}">Resource list</a></li>
-        <li><a href="{{ url_for('addresource') }}">Add a Resource</a></li>
-        <li><a href="{{ url_for('categorylist') }}">Category list</a></li>
+        {% if session.user == Null %}
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('resourcelist') }}">Resource list</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+        {% else %}
+            <li><a href="{{ url_for('addresource') }}">Add a Resource</a></li>
+            <li><a href="{{ url_for('categorylist') }}">Category list</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        {% endif %}
       </ul>
     </div>
   </nav>
@@ -32,13 +35,16 @@
   <!-- Mobile navbar -->
   <ul class="sidenav purple purple darken-2" id="mobile-demo">
         <li><a href="/">Home</a></li>
-        <li><a href="{{ url_for('about') }}">About</a></li>
-        <li><a href="{{ url_for('register') }}">Register</a></li>
-        <li><a href="{{ url_for('login') }}">Login</a></li>
-        <li><a href="#">Logout</a></li>
-        <li><a href="{{ url_for('resourcelist') }}">Resource list</a></li>
-        <li><a href="{{ url_for('addresource') }}">Add a resource</a></li>
-        <li><a href="{{ url_for('categorylist') }}">Category list</a></li>
+        {% if session.user == Null %}
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('resourcelist') }}">Resource list</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+        {% else %}
+            <li><a href="{{ url_for('addresource') }}">Add a Resource</a></li>
+            <li><a href="{{ url_for('categorylist') }}">Category list</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        {% endif %}
   </ul>
 
 <nav>
@@ -55,15 +61,15 @@
 
 <section>
     <!-- Flash messages -->
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="flashes">
             {% for message in messages %}
-                <div class="row flashes">
-                    <h4 class="purple lighten-4 center align"{{ message }}></h4>
-                </div>
+                <li>{{ message }}</li>
             {% endfor %}
-        {% endif %}
-    {% endwith %}
+        </ul>
+    {% endif %}
+{% endwith %}
 </section>
 
 <div class="container">

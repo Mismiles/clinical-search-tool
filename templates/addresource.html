@@ -11,9 +11,11 @@
                     <option disabled selected value="">
                         Choose your option
                     </option>
+                    {% for cat in categories %}
                     <option value="{{cat.resource_category}}">
                         {{cat.resource_category}}
                     </option>
+                    {% endfor %}
                 </select> <label>Select resource category</label>
             </div>
             <div class="input-field col s12">

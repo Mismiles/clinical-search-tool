@@ -78,8 +78,8 @@ h5 {
  margin: 0;
 }
 
-.flashes h4 {
-    position: relative;
+.flashes {
+    position: absolute;
     line-height: 2;
 }
 
