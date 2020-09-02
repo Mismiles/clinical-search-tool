@@ -15,9 +15,8 @@ app.config["MONGO_URI"] = os.getenv("MONGODB_LIST")
 mongo = PyMongo(app)
 
 @app.route("/")
-def index():
-    if 'username' in session:
-        return render_template("index.html")
+def index():        
+    return render_template("index.html")
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -38,7 +37,30 @@ def register():
         #Put new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful")
-    return render_template('register.html')
+    return render_template('index.html')
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        #Check if username is in database
+        existing_user = mongo.db.users.find_one({"username": request.form.get("username").lower()})
+
+        if existing_user:
+            #Ensure the hashed password matches user input
+            if check_password_hash(existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(request.form.get("username")))
+            else:
+                #Password incorrect
+                flash("Incorrect Username and/or Password")
+                return redirect(url_for("login"))
+            
+        else:
+            #Username does not exist
+            flash("Incorrect Username and/or Password")
+            return redirect(url_for("login"))
+
+    return render_template("login.html")
 
 @app.route("/results")
 def results():
