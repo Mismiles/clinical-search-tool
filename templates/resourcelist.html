@@ -22,8 +22,8 @@
     <p>Search terms: {{resource.searchterms}}</p>
     <p>Resource updated on {{resource.resource_updated}}</p>
     {% if session.user %}
-        <a href="{{url_for('editresource', resource_id=resource._id)}}" class="waves-effect #e040fb purple accent-2 btn btn small"><i class="material-icons left">cloud</i>Edit resource</a>
-        <a href="{{url_for('delete_resource', resource_id=resource._id)}}" class="waves-effect #e040fb purple accent-2 btn btn small"><i class="material-icons left">cloud</i>Delete resource</a>
+        <a href="{{url_for('editresource', resource_id=resource._id)}}" class="waves-effect #e040fb purple accent-2 btn btn small"><i class="material-icons left">edit</i>Edit resource</a>
+        <a href="{{url_for('delete_resource', resource_id=resource._id)}}" class="waves-effect #e040fb purple accent-2 btn btn small"><i class="material-icons left">delete_forever</i>Delete resource</a>
     {% else %}
         <h5 class="red"><b>Login or Register to Edit or Delete</b></h5>
     {% endif %}
