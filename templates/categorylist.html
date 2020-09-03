@@ -11,15 +11,15 @@
     <div class="task_header col s9">
         <strong>{{category.resource_category}}</strong>
     </div>
-    <a href="{{url_for('edit_category', category_id=category._id)}}" class="waves-effect waves-light btn btn small"><i class="material-icons left">cloud</i>Edit category</a>
-    <a href="{{url_for('delete_category', category_id=category._id)}}" class="waves-effect waves-light btn btn small"><i class="material-icons left">cloud</i>Delete category</a>
+    <a href="{{url_for('edit_category', category_id=category._id)}}" class="waves-effect #e040fb purple accent-2 btn btn small"><i class="material-icons left">cloud</i>Edit category</a>
+    <a href="{{url_for('delete_category', category_id=category._id)}}" class="waves-effect #e040fb purple accent-2 btn btn small"><i class="material-icons left">cloud</i>Delete category</a>
     </div>
 </li>
 {% endfor %}
 </ul>
 </div>
 <div class="row">
-<a href="{{url_for('new_category')}}" class="waves-effect waves-light btn btn small">
+<a href="{{url_for('new_category')}}" class="waves-effect #e040fb purple accent-2 btn btn small">
 <i class="material-icons right">playlist_add</i>Add category</a>
 </div>
 

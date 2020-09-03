@@ -68,7 +68,7 @@ def logout():
     #Logout user by removing session cookies
     flash("You've successfully logged out")
     session.pop("user", None)
-    return redirect(url_for("login"))
+    return redirect(url_for("index"))
 
 @app.route("/results")
 def results():
