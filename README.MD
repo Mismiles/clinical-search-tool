@@ -6,7 +6,7 @@ This project aims to build a search database that will allow the user to search 
 ##UX
 The website is made for pharmacits to store and look up resources. It is built for pharmacists of multiple diciplines (paediatrics, maternity, anticoagulation, geriatrics, respiratory, cardiology, gastroenterology, surgery etc)
 
-The tool aims to get better over time with more additions to seaarch terms allowing for resources to be searched for quicker.
+The tool aims to get better over time with more additions to search terms allowing for resources to be searched for quicker.
 
 As a pharmacist of a certain dicipline, I want to be able to serach for a resource that is relivant to my dicipline. 
 
@@ -20,20 +20,35 @@ Click to see the wireframe link for desktop browsers. The mobile version does no
 https://drive.google.com/file/d/1fpjlTmFjG2F_fiG67_HgJ0i6IJcptLUw/view?usp=sharing
 
 ##Features
-The front page is simple. It contains a navbar and a search box.
+The front page is simple. It contains a navbar with a searchbox, and a main search box.
 
-The nav bar allows for naviagtion to the homepage,about, resource list and the add a resource page.
+The nav bar allows for naviagtion and also has a searchbar.
+
+The project has a registration and login system.
+
+If the user is not loggin in, they will only be able to access the "home", "about", "resource list", "register" and "login" pages. 
+
+If the user is logged in, they will be able to access the "add a resource" page and "category list" pages. They will also have access to edit and delete functions.
+
+The CRUD functions are linked to an external MongoDB database and paswords are stored securely.
 
 ##Existing Features
 The first feature (the search bar) allows the user to serch the database using key words.
 
-The results page shows the reults.
+The results page shows the results.
+
+Logged in users can search, add, edit and delete resources and categories. Logged out users can search and view the resources.
 
 The "add a resource" page allows the user to fill out a form which will add to the database.
 
-##Features Left to Implement
-A login page or function could be added to ensure only those who are registered can alter the data.
 
+
+##Features Left to Implement
+A function to allow the user to reset their password.
+
+A function allowing the resources to be collated under the same heading in the resource list.
+
+A function allowing the search results to be collated under the search term for easy viewing.
 
 ##Technologies Used
 The technologies used include:
@@ -46,7 +61,7 @@ The technologies used include:
 
 [Vanilla Javascript] This project uses javascript to add functionally. Additionally it uses Javascript to calculate ideal body weight, body mass index, creatinine clearance (kidney function), the initial dose of vancomycin, the maintenance dose of vancomycin and the frequency of monitoring of the drug.
 
-JQuery The project uses JQuery to simplify DOM manipulation. In this project, it was only used for the bootstrap features.
+[JQuery] The project uses JQuery to simplify DOM manipulation. In this project, it was only used for the bootstrap features.
 
 ##Testing
 The code was tested using jshint.com. No major issues were identified.
@@ -62,25 +77,12 @@ The webpage was tested on chrome, internet explorer and firefox.
 The webpage was also tested on the following mobile devices: Huawei Mate 20 pro iPhone 7 Samsung Galaxy s8 Samsung Galaxy S10
 
 Testing the tool:
-Click the disclaimer
-Fill in all the fields
-Submit the form and compare the results to the guideline
-Click "click to show dosing rationale" to identify how the recommendations were calculated.
-Note that the guideline is intentionally hidden on mobile devices. This is to minimise screen switching.
-
-The calendar does not appear on internet explorer.
 
 Deployment
-To run the project, simply go to https://mismiles.github.io/project-clinical-calculator/
+To run the project, simply go to http://pharmacy-search.herokuapp.com/
 
 Credits
 Content
-The top clickable arrow to show the guideline was adapted from http://code-chunk.com/chunks/543df4c394758/bootstrap-arrow-shaped-buttons
-The code for the calendar was obtianed from https://stackoverflow.com/questions/32378590/set-date-input-fields-max-date-to-today . This was then adapted to display the minimum date (30 days prior).
-The scrollby function was obtained from https://www.w3schools.com/jsref/met_win_scrollby.asp and then adapted.
-Media
-PDF from this document was taken from a local hospital guideline, obtained from the Whittington health intranet page
+
 Acknowledgements
-My colleague and consultant antimicrobial pharmacist Ai-Nee Lim who was pivotal in the design of the vancomycin antimicrobial guideline.
-My colleague Dr Nitzan Lindenberg who took his time to aid in the initiation step of building this tool and providing constructive feedback throughout.
-My colleagues Anja Ritchter, Chandini Kanderia, Dr Howell Jones, Ian Man and Patricia McCormick for testing the tool.
+My 
