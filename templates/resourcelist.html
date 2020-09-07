@@ -17,7 +17,7 @@
     <div class="collapsible-body">
     <div>
     <p>{{resource.resource_name}}</p>
-    <a href="{{resource.resource_link}}" target="_blank" id="link">{{resource.resource_link}}</a>
+    <a href="{{resource.resource_link}}" target="_blank" id="link"><b>{{resource.resource_link}}</b></a>
     <p>{{resource.resource_description}}</p>
     <p>Search terms: {{resource.searchterms}}</p>
     <p>Resource updated on {{resource.resource_updated}}</p>
@@ -25,7 +25,7 @@
         <a href="{{url_for('editresource', resource_id=resource._id)}}" class="waves-effect #e040fb purple accent-2 btn btn small"><i class="material-icons left">edit</i>Edit resource</a>
         <a href="{{url_for('delete_resource', resource_id=resource._id)}}" class="waves-effect #e040fb purple accent-2 btn btn small"><i class="material-icons left">delete_forever</i>Delete resource</a>
     {% else %}
-        <h5 class="red"><b>Login or Register to Edit or Delete</b></h5>
+        <h5 class="red"><b><a href="{{ url_for('login') }}">Login</a> or <a href="{{ url_for('register') }}">Register</a> to Edit or Delete</b></h5>
     {% endif %}
     </div>
 </li>
