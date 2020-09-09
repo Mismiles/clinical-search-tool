@@ -3,6 +3,7 @@ $(document).ready(function(){
     $('select').formSelect();
     $('.sidenav').sidenav();
     $('.datepicker').datepicker();
+    $('input#input_text, textarea#textarea2').characterCounter();
     $('.resource_updated')
     $("#searchbox").focus(function() {
     $(".search-box").addClass("border-searching");
