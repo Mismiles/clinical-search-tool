@@ -4,7 +4,7 @@ The project was started to imporve the searching of resources. At my hospital, w
 This project aims to build a search database that will allow the user to search for a resource using a key word. If they cannot find the resource under the keyword, they can access the master list and add or edit keywords to the search term. Overtime, this should mean that you can use many search terms instead of one.
 
 ##UX
-The website is made for pharmacits to store and look up resources. It is built for pharmacists of multiple diciplines (paediatrics, maternity, anticoagulation, geriatrics, respiratory, cardiology, gastroenterology, surgery etc)
+The website is made for pharmacists to store and look up resources. It is built for pharmacists of multiple diciplines (paediatrics, maternity, anticoagulation, geriatrics, respiratory, cardiology, gastroenterology, surgery etc)
 
 The tool aims to get better over time with more additions to search terms allowing for resources to be searched for quicker.
 
@@ -55,7 +55,11 @@ The technologies used include:
 
 [Html] The basis of the project was made using HTML
 
-[CSS] CSS was used to add styles on top of Bootstrap
+[CSS] CSS was used to add styles
+
+[Python] Python was used to backend functionality to the application.
+
+[Flask] Flask was used to link the front and backend of the application. 
 
 [Materialize] Materialize was used for styling.
 
@@ -68,21 +72,21 @@ The code was tested using jshint.com. No major issues were identified.
 
 The tool was tested on both mobile and desktop screens.
 
-As the aim is for the tool to be implemented in a clinical setting and for screen switching to be minimised as much as possible.
+The webpage was tested on chrome.
 
-The the webpage has been tested on windows desktops. Note that it was not tested on 4k resolutions as these were not present in the hospital computers.
-
-The webpage was tested on chrome, internet explorer and firefox.
-
-The webpage was also tested on the following mobile devices: Huawei Mate 20 pro iPhone 7 Samsung Galaxy s8 Samsung Galaxy S10
+The webpage was also tested on the following mobile devices: Huawei Mate 20 pro
 
 Testing the tool:
 
 Deployment
 To run the project, simply go to http://pharmacy-search.herokuapp.com/
 
-Credits
+For version control, the project was pushed to GitHub https://github.com/Mismiles/clinical-search-tool
+
+Credits and Acknowledgements
+Thank you to the team at Code Institute for the practical python lessons and aiding with coding issues. 
+
 Content
 
-Acknowledgements
-My 
+Media
+The design (search bar and background) were obtained from: 
