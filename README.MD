@@ -91,7 +91,33 @@ To test the edit category: login and click category list. Then click edit to edi
 ## Deployment
 To run the project, simply go to http://pharmacy-search.herokuapp.com/
 
+The following are configured under Settings -> Reveal Config Vars
+
+MONGO_URI: This is present in the env.py file if used locally. However, it needs to be set in the config vars in heroku. It takes the format of mongodb://<db_user>:<db_password>@mongodb0.example.com:/<db_name>
+IP: 0.0.0.0
+PORT: 5000
+
 For version control, the project was pushed to GitHub https://github.com/Mismiles/clinical-search-tool
+
+### To run locally
+
+Simply clone this repository using $ git clone <https://github.com/Mismiles/clinical-search-tool.git>
+
+To install dependencies for the app to run from the requirements.txt file, run the following command in the terminal "pip install -r requirements.txt"
+
+Set your environment variables e.g. IP: 127.0.0.3 and PORT: 5000 to view the site in the browser.
+
+If running locally, set debug to "True" at the very bottom of app.py. If deployed to production, ensure this is set to "False".
+
+Run the code in an IDE (Integrated development environment) by loading "python app.py" (note the app was built using python3)
+
+### Setting up the database
+
+First create a MongoDB database in MLab called 'PharmacyLinks'
+
+Add 'categories', 'resource' and 'users' collections
+In the env.py, set the MONGO_URI as an app.config (you can find this inside the 'PharmacyLinks' collection): mongodb://<db_user>:<db_password>@mongodb0.example.com:/<db_name>
+
 
 ## Credits and Acknowledgements
 Thank you to the team at Code Institute for the practical python lessons and aiding with coding issues. 
