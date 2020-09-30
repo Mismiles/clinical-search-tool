@@ -1,9 +1,9 @@
-##Pharmacy search tool
+## Pharmacy search tool
 The project was started to imporve the searching of resources. At my hospital, we have a search tool that finds reources clinicians need inorder to undertake their work. Clinicians often have to know the route and links to click to find a specific resource, or be able to search for that tool exactly how it is spelt on the system. This wastes a lot of time searching for resources, removing important time needed spent looking after patients. 
 
 This project aims to build a search database that will allow the user to search for a resource using a key word. If they cannot find the resource under the keyword, they can access the master list and add or edit keywords to the search term. Overtime, this should mean that you can use many search terms instead of one.
 
-##UX
+## UX
 The website is made for pharmacists to store and look up resources. It is built for pharmacists of multiple diciplines (paediatrics, maternity, anticoagulation, geriatrics, respiratory, cardiology, gastroenterology, surgery etc)
 
 The tool aims to get better over time with more additions to search terms allowing for resources to be searched for quicker.
@@ -14,7 +14,7 @@ As a junior pharmacist, I want to be able to search for pharmacy resources wihto
 
 As a pre registration pharmacist, I want to be able to search for pharmacy resources to appreciate evidence based guidance.
 
-##Features
+## Features
 The front page is simple. It contains a navbar with a searchbox, and a main search box.
 
 The nav bar allows for naviagtion and also has a searchbar.
@@ -27,7 +27,7 @@ If the user is logged in, they will be able to access the "add a resource" page 
 
 The CRUD functions are linked to an external MongoDB database and paswords are stored securely.
 
-##Existing Features
+## Existing Features
 The first feature (the search bar) allows the user to serch the database using key words.
 
 The results page shows the results.
@@ -37,7 +37,7 @@ Logged in users can search, add, edit and delete resources and categories. Logge
 The "add a resource" page allows the user to fill out a form which will add to the database.
 
 
-##Features Left to Implement
+## Features Left to Implement
 A function to allow the user to reset their password.
 
 A function allowing the resources to be collated under the same heading in the resource list.
@@ -61,7 +61,7 @@ The technologies used include:
 
 [JQuery] The project uses JQuery to simplify DOM manipulation. In this project, it was only used for the bootstrap features.
 
-##Testing
+## Testing
 The code was tested using jshint.com. No major issues were identified.
 
 The tool was tested on both mobile and desktop screens.
@@ -88,14 +88,14 @@ To test the edit resource: login and click resource list. Click on a resource he
 
 To test the edit category: login and click category list. Then click edit to edit the category.
 
-##Deployment
+## Deployment
 To run the project, simply go to http://pharmacy-search.herokuapp.com/
 
 For version control, the project was pushed to GitHub https://github.com/Mismiles/clinical-search-tool
 
-##Credits and Acknowledgements
+## Credits and Acknowledgements
 Thank you to the team at Code Institute for the practical python lessons and aiding with coding issues. 
 
-##Media
+## Media
 The design for the project was obtained from:
 https://codepen.io/tommysmall92/pen/oPjaNW?page=1& 
