@@ -14,11 +14,6 @@ As a junior pharmacist, I want to be able to search for pharmacy resources wihto
 
 As a pre registration pharmacist, I want to be able to search for pharmacy resources to appreciate evidence based guidance.
 
-##Wireframe
-Click to see the wireframe link for desktop browsers. The mobile version does not contain the PDF document to minimise screen switching.
-
-https://drive.google.com/file/d/1fpjlTmFjG2F_fiG67_HgJ0i6IJcptLUw/view?usp=sharing
-
 ##Features
 The front page is simple. It contains a navbar with a searchbox, and a main search box.
 
@@ -40,7 +35,6 @@ The results page shows the results.
 Logged in users can search, add, edit and delete resources and categories. Logged out users can search and view the resources.
 
 The "add a resource" page allows the user to fill out a form which will add to the database.
-
 
 
 ##Features Left to Implement
@@ -77,16 +71,31 @@ The webpage was tested on chrome.
 The webpage was also tested on the following mobile devices: Huawei Mate 20 pro
 
 Testing the tool:
+To test the tool's search function: 
+Simply enter a search term and press enter. 
 
-Deployment
+To test the register and login function: input details to register, and then input again to login. Passwords are case sensitive.
+
+To test the "add a resourse" function: login and click add resource. Fill out the form. You will be redirected back to the resource list. The reosurce with the fields should be present there. 
+
+To test the "add a category" function: login and click add a category. Fill out the form. You will be redirected back to the category list. The category should be present there.
+
+To test the delete resource: login and click resource list. Click on a resource heading. Then click delete to delete the resource.
+
+To test the delete category: login and click category list. Click delete to delete a category.
+
+To test the edit resource: login and click resource list. Click on a resource heading. Then click edit to edit the resource.
+
+To test the edit category: login and click category list. Then click edit to edit the category.
+
+##Deployment
 To run the project, simply go to http://pharmacy-search.herokuapp.com/
 
 For version control, the project was pushed to GitHub https://github.com/Mismiles/clinical-search-tool
 
-Credits and Acknowledgements
+##Credits and Acknowledgements
 Thank you to the team at Code Institute for the practical python lessons and aiding with coding issues. 
 
-Content
-
-Media
-The design (search bar and background) were obtained from: 
+##Media
+The design for the project was obtained from:
+https://codepen.io/tommysmall92/pen/oPjaNW?page=1& 
